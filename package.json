@@ -3,6 +3,7 @@
     "start": "node broker.js"
   },
   "dependencies": {
-    "aedes": "^0.51.3"
+    "aedes": "^0.51.3",
+    "websocket-stream": "^5.3.0"
   }
 }

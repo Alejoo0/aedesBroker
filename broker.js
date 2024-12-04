@@ -6,10 +6,10 @@ const ws = require('websocket-stream');
 require('dotenv').config();
 
 // Puerto TCP para MQTT
-const MQTT_PORT = process.env.MQTT_PORT || 1883;
+const MQTT_PORT = process.env.MQTT_PORT || 1884;
 
 // Puerto WebSocket (opcional)
-const WS_PORT = process.env.WS_PORT || 8080;
+const WS_PORT = process.env.WS_PORT || 8884;
 
 // Inicia el servidor TCP
 const mqttServer = net.createServer(aedes.handle);
