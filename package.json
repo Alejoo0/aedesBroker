@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node mqtt-broker.js"
+    "start": "node broker.js"
   },
   "dependencies": {
     "aedes": "^0.51.3"
