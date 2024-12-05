@@ -1,4 +1,7 @@
 {
+  "name": "aedes-broker",
+  "version": "1.0.0",
+  "main": "broker.js",
   "scripts": {
     "start": "node broker.js"
   },
