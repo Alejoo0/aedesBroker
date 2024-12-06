@@ -1,14 +1,20 @@
 const aedes = require('aedes')();
-const net = require('net');
+const server = require('net').createServer(aedes.handle);
 
-// Carga las variables de entorno
-require('dotenv').config();
+const port = 1883;
 
-// Puerto TCP para MQTT
-const MQTT_PORT = process.env.MQTT_PORT || 1884;
+server.listen(port, () => {
+    console.log(`Aedes MQTT broker is running on port ${port}`);
+});
 
-// Inicia el servidor TCP
-const mqttServer = net.createServer(aedes.handle);
-mqttServer.listen(MQTT_PORT, function () {
-    console.log(`MQTT Broker running on port ${MQTT_PORT}`);
+aedes.on('client', (client) => {
+    console.log(`Client connected: ${client ? client.id : 'Unknown'}`);
+});
+
+aedes.on('clientDisconnect', (client) => {
+    console.log(`Client disconnected: ${client ? client.id : 'Unknown'}`);
+});
+
+aedes.on('publish', (packet, client) => {
+    console.log(`Message published on topic ${packet.topic}: ${packet.payload.toString()}`);
 });
